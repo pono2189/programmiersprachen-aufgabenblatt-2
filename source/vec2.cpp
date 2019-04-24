@@ -1,9 +1,25 @@
-#ifndef VEC2_HPP
-#define VEC2_HPP
+#include "vec2.hpp"
 
-struct Vec2{
-    float x = 0.0f; 
-    float y = 0.0f;
-    
-}
-#endif // VEC2_HPP
+Vec2& Vec2::operator +=( Vec2 const& v){
+    x += v.x;
+    y += v.y;
+    return *this;
+};
+
+Vec2& Vec2::operator -=( Vec2 const& v){
+    x -= v.x;
+    y -= v.y;
+    return *this;
+};
+
+Vec2& Vec2::operator *=( float s){
+    x *= s;
+    y *= s;
+    return *this;
+};
+
+Vec2& Vec2::operator /=( float s){
+    x /= s;
+    y /= s;
+    return *this;
+};
