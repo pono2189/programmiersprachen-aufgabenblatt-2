@@ -20,7 +20,12 @@ Vec2& Vec2::operator *=( float s){
 };
 
 Vec2& Vec2::operator /=( float s){
-    x /= s;
-    y /= s;
+    //if (s == 0.0f) {
+        //cout << "Error" << endl;
+    //}
+    //else {
+        x /= s;
+        y /= s;
+    //}
     return *this;
 };
