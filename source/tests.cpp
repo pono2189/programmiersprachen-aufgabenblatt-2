@@ -33,6 +33,63 @@ TEST_CASE ("+=","[+=]") {
 
     
 }
+TEST_CASE ("-=","[-=]") {
+  Vec2 a; 
+  Vec2 b {5.1f , -9.3f};
+  Vec2 c {0.523f, 0.9999f};
+
+  a -= b;
+  b -= c; 
+  c -= c; 
+
+  REQUIRE(Approx(-5.1f) == a.x);  ;
+  REQUIRE(Approx(9.3f) == a.y); 
+  REQUIRE(Approx(0.0f) == c.x);
+  REQUIRE(Approx(0.0f) == c.y);
+  REQUIRE(Approx(4.577f) == b.x); 
+  //REQUIRE(Approx(-10,2999f) == b.y); ??????
+
+    
+}
+
+TEST_CASE ("*=","[*=]") {
+  Vec2 a; 
+  Vec2 b {5.1f , -9.3f};
+  Vec2 c {0.523f, 0.9999f};
+  a *= 4.0f;   
+  b *= 0.0f;
+  c *= -3.0f;
+
+  
+
+  REQUIRE(Approx(0.0f) == a.x);  ;
+  REQUIRE(Approx(0.0f) == a.y); 
+  REQUIRE(Approx(0.0f) == b.x);
+  REQUIRE(Approx(0.0f) == b.y);
+  REQUIRE(Approx(-1.569f) == c.x);
+  REQUIRE(Approx(-2.9997f) == c.y);
+  
+}
+TEST_CASE ("/=","[/=]") {
+  Vec2 a; 
+  Vec2 b {5.1f , -9.3f};
+  Vec2 c {0.523f, 0.9999f};
+  a /= 4.5f;   
+  b /= 0.0f;
+  c /= -3.0f;
+
+  
+
+  //REQUIRE(Approx(0.0f) == b.x); == error???  ;
+  //REQUIRE(Approx(0.0f) == b.y); 
+  REQUIRE(Approx(0.0f) == a.x);
+  REQUIRE(Approx(0.0f) == a.y);
+  REQUIRE(Approx(-0.17433333f) == c.x);
+  REQUIRE(Approx(-0.3333f) == c.y);
+    
+}
+
+
 
 int main(int argc, char *argv[])
 {
