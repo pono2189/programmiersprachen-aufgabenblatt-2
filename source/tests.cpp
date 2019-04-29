@@ -49,7 +49,7 @@ TEST_CASE ("-=","[-=]") {
   REQUIRE(Approx(0.0f) == c.x);
   REQUIRE(Approx(0.0f) == c.y);
   REQUIRE(Approx(4.577f) == b.x); 
-  REQUIRE(Approx(-10,2999f) == b.y);
+  REQUIRE(Approx(-10.2999f) == b.y);
 
     
 }
@@ -119,7 +119,7 @@ TEST_CASE ("-","[-]") {
   REQUIRE(Approx(0.0f) == c.x);
   REQUIRE(Approx(0.0f) == c.y);
   REQUIRE(Approx(4.577f) == b.x); 
-  REQUIRE(Approx(-10,2999f) == b.y);
+  REQUIRE(Approx(-10.2999f) == b.y);
 }
 
 TEST_CASE ("*","[*]") {
@@ -146,7 +146,7 @@ TEST_CASE ("/","[/]") {
   b = b / 0.0f;
   c = c / -3.0f;
 
-  //REQUIRE(Approx(0.0f) == b.x); == error???  ;
+  //REQUIRE(Approx(0.0f) == b.x); == error??? ;
   //REQUIRE(Approx(0.0f) == b.y); 
   REQUIRE(Approx(0.0f) == a.x);
   REQUIRE(Approx(0.0f) == a.y);

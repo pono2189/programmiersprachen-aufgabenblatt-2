@@ -18,5 +18,8 @@ Vec2 operator -(Vec2 const& u, Vec2 const& v );
 Vec2 operator *(Vec2 const& v, float s );
 Vec2 operator /( Vec2 const& v, float s );
 Vec2 operator *( float s, Vec2 const& v );
+// Aufgabe 2.6
+//Vec2 operator *( Mat2 const& m , Vec2 const& v );
+//Vec2 operator *( Vec2 const& v , Mat2 const& m );
 
 #endif // VEC2_HPP

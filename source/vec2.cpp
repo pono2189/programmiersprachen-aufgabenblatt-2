@@ -1,5 +1,6 @@
 #include "vec2.hpp"
 #include <iostream>
+#include "mat2.hpp"
 
 Vec2& Vec2::operator +=( Vec2 const& v){
     x += v.x;
@@ -80,4 +81,17 @@ Vec2 operator *( float s , Vec2 const& v ){
     z.y = v.y * s;
     return z;
 };
+
+Vec2 operator *( Mat2 const& m , Vec2 const& v ){
+    Vec2 result; 
+    result.x = m.e_00*v.x + m.e_01*v.y; 
+    result.y = m.e_10*v.x + m.e_11*v.y;
+    return result; 
+};
+
+Vec2 operator *( Vec2 const& v , Mat2 const& m ){
+    std::cout << "Error \n";
+    return v;
+};
+
 
