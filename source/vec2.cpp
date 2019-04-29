@@ -1,4 +1,5 @@
 #include "vec2.hpp"
+#include <iostream>
 
 Vec2& Vec2::operator +=( Vec2 const& v){
     x += v.x;
@@ -19,13 +20,64 @@ Vec2& Vec2::operator *=( float s){
     return *this;
 };
 
-Vec2& Vec2::operator /=( float s){
-    //if (s == 0.0f) {
-        //cout << "Error" << endl;
-    //}
-    //else {
+Vec2& Vec2::operator /=(float s){
+    if (s == 0.0f) {
+        std::cout << "Error \n";
+    }
+    else {
         x /= s;
         y /= s;
-    //}
+    }
     return *this;
 };
+
+// 2.4
+ Vec2 operator+ (Vec2 const& u , Vec2 const& v){
+    Vec2 z; //neuer vektor da konstanten!
+    z.x = u.x;
+    z.y = u.y; 
+    z.x += v.x;
+    z.y += v.y;
+
+    return z;
+};
+
+
+
+Vec2 operator-( Vec2 const& u , Vec2 const& v ){
+    Vec2 z;
+    z.x = u.x;
+    z.y = u.y;
+    z.x -= v.x;
+    z.y -= v.y;
+
+    return z;
+};
+
+Vec2 operator*( Vec2 const& v , float s ){
+    Vec2 z;
+    z.x = v.x; 
+    z.y = v.y;
+    z.x *= s;
+    z.y *= s;
+   
+
+    return z;
+};
+
+Vec2 operator /( Vec2 const& v , float s ){
+    Vec2 z;
+    z.x = v.x;
+    z.x /= s;
+    z.y = v.y;
+    z.y /= s; 
+    return z;
+};
+
+Vec2 operator *( float s , Vec2 const& v ){
+    Vec2 z;
+    z.x = v.x * s;
+    z.y = v.y * s;
+    return z;
+};
+
