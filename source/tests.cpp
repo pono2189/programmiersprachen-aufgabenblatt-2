@@ -78,8 +78,8 @@ TEST_CASE ("/=","[/=]") {
   b /= 0.0f;
   c /= -3.0f;
 
-  //REQUIRE(Approx(0.0f) == b.x); == error???  ;
-  //REQUIRE(Approx(0.0f) == b.y); 
+  REQUIRE(Approx(0.0f) == b.x);
+  REQUIRE(Approx(0.0f) == b.y); 
   REQUIRE(Approx(0.0f) == a.x);
   REQUIRE(Approx(0.0f) == a.y);
   REQUIRE(Approx(-0.17433333f) == c.x);

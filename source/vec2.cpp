@@ -24,6 +24,8 @@ Vec2& Vec2::operator *=( float s){
 Vec2& Vec2::operator /=(float s){
     if (s == 0.0f) {
         std::cout << "Error \n";
+        Vec2 v0;
+        return v0;
     }
     else {
         x /= s;
