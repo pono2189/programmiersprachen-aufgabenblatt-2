@@ -78,8 +78,8 @@ TEST_CASE ("/=","[/=]") {
   b /= 0.0f;
   c /= -3.0f;
 
-  REQUIRE(Approx(0.0f) == b.x);
-  REQUIRE(Approx(0.0f) == b.y); 
+  REQUIRE(Approx(5.1f) == b.x);
+  REQUIRE(Approx(-9.3f) == b.y); 
   REQUIRE(Approx(0.0f) == a.x);
   REQUIRE(Approx(0.0f) == a.y);
   REQUIRE(Approx(-0.17433333f) == c.x);
@@ -146,8 +146,8 @@ TEST_CASE ("/","[/]") {
   b = b / 0.0f;
   c = c / -3.0f;
 
-  //REQUIRE(Approx(0.0f) == b.x); == error??? ;
-  //REQUIRE(Approx(0.0f) == b.y); 
+  REQUIRE(Approx(0.0f) == b.x);
+  REQUIRE(Approx(0.0f) == b.y); 
   REQUIRE(Approx(0.0f) == a.x);
   REQUIRE(Approx(0.0f) == a.y);
   REQUIRE(Approx(-0.17433333f) == c.x);
@@ -156,6 +156,7 @@ TEST_CASE ("/","[/]") {
 
 // Aufgabe 2.5
 
+/*
 TEST_CASE ("*=","[*=]") {
 
   Mat2 a; 
@@ -196,7 +197,11 @@ TEST_CASE ("*","[*]") {
   REQUIRE(Approx(8.33f) == b.e_11);
   
 }
+*/
 
+// Aufgabe 2.6
+
+// Aufgabe 2.7
 
 
 int main(int argc, char *argv[])
