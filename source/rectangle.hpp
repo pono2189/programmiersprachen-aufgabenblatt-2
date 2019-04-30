@@ -1,13 +1,12 @@
+
 #include "vec2.hpp"
+#include "color.hpp"
 
 class Rectangle{
     public:
-        Rectangle(Vec2 min_, Vec2 max_, float height, Color col)
-        : m_min_(min_), m_max_(max_), m_height(height), m_col(col) {}
+        Rectangle(Vec2 const& min_, Vec2 const& max_);
     
     private:
-        float height {0.0f}; 
-}
-
-
-        
+        Vec2 min_; 
+        Vec2 max_; 
+};

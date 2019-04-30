@@ -1,5 +1,6 @@
-#include "vec2.hpp"
+
 #include <iostream>
+#include "vec2.hpp"
 #include "mat2.hpp"
 
 Vec2& Vec2::operator +=( Vec2 const& v){

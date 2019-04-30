@@ -1,5 +1,7 @@
+
 #include "mat2.hpp"
 #include "cmath"
+
 
 // Aufgabe 2.5
 Mat2& Mat2::operator *=( Mat2 const& m ){

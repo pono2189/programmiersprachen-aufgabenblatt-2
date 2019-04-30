@@ -26,6 +26,3 @@ Mat2 transpose ( Mat2 const& m );
 Mat2 make_rotation_mat2 ( float phi );
 
 #endif
-
-
-

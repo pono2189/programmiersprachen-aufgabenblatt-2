@@ -1,8 +1,11 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
-#include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
+#include "circle.hpp"
+#include "vec2.hpp"
+
+#include "rectangle.hpp"
 
 
 // 2.2
@@ -286,9 +289,21 @@ TEST_CASE ("color","[color]") {
   REQUIRE(Approx(0.7f).epsilon(0.1) == b.b); 
 }
 
+/*
+TEST_CASE ("circle","[circle]") {
+  Circle a; 
+  Vec2 v{0.7f, 0.1f};
+  Color c{0.2f, 0.4f, 0.7f};
+  Circle b {0.1f ,0.3f ,v, c};
+
+  }
+*/
+
 
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
 }
+
+
 
