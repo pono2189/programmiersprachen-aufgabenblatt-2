@@ -156,7 +156,7 @@ TEST_CASE ("/","[/]") {
 
 // Aufgabe 2.5
 
-/*
+
 TEST_CASE ("*=","[*=]") {
 
   Mat2 a; 
@@ -197,9 +197,30 @@ TEST_CASE ("*","[*]") {
   REQUIRE(Approx(8.33f) == b.e_11);
   
 }
-*/
+
 
 // Aufgabe 2.6
+
+TEST_CASE ("inverse","[inverse]") {
+
+  Mat2 a; 
+  Mat2 b {5.1f ,-9.3f ,3.2f ,1.2f};
+  Mat2 c {0.52f, 0.99f, 0.0f, 4.3f};
+  a = inverse(a);  
+  b = inverse(b);
+  c = inverse(c);
+
+  REQUIRE(Approx(1.0f) == a.e_00);  
+  REQUIRE(Approx(0.0f) == a.e_01); 
+  REQUIRE(Approx(1.0f) == a.e_10);
+  REQUIRE(Approx(0.0f) == a.e_11);
+
+  REQUIRE(Approx(0.3343999982f) == b.e_00);  
+  REQUIRE(Approx(0.26f) == b.e_01); 
+  REQUIRE(Approx(-0.89f) == b.e_10);
+  REQUIRE(Approx(0.142f) == b.e_11);
+  
+}
 
 // Aufgabe 2.7
 
