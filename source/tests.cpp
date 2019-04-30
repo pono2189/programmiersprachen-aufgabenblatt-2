@@ -2,6 +2,7 @@
 #include <catch.hpp>
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "color.hpp"
 
 
 // 2.2
@@ -206,10 +207,8 @@ TEST_CASE ("inverse","[inverse]") {
 
   Mat2 a; 
   Mat2 b {5.1f ,-9.3f ,3.2f ,1.2f};
-  Mat2 c {0.52f, 0.99f, 0.0f, 4.3f};
   Mat2 inv_a = inverse(a);  
   Mat2 inv_b = inverse(b);
-  Mat2 inv_c = inverse(c);
 
   REQUIRE(Approx(1.0f) == inv_a.e_00);  
   REQUIRE(Approx(0.0f) == inv_a.e_01); 
@@ -228,10 +227,8 @@ TEST_CASE ("transpose","[transpose]") {
 
   Mat2 a; 
   Mat2 b {5.1f ,-9.3f ,3.2f ,1.2f};
-  Mat2 c {0.52f, 0.99f, 0.0f, 4.3f};
   a = transpose(a);  
   b = transpose(b);
-  c = transpose(c);
 
   REQUIRE(Approx(1.0f) == a.e_00);  
   REQUIRE(Approx(0.0f) == a.e_01); 
@@ -245,7 +242,49 @@ TEST_CASE ("transpose","[transpose]") {
   
 }
 
+TEST_CASE ("make_rotation_mat2","[make_rotation_mat2]") {
+
+  Mat2 a; 
+  Mat2 b;
+  a = make_rotation_mat2(1.0);  
+  b = make_rotation_mat2(5.3);
+
+  REQUIRE(Approx(0.5403f).epsilon(0.1) == a.e_00);  
+  REQUIRE(Approx(-0.84147f).epsilon(0.1) == a.e_01); 
+  REQUIRE(Approx(0.84147f).epsilon(0.1) == a.e_10);
+  REQUIRE(Approx(0.5403f).epsilon(0.1) == a.e_11);
+
+  REQUIRE(Approx(0.55437f).epsilon(0.1) == b.e_00);  
+  REQUIRE(Approx(0.83227f).epsilon(0.1) == b.e_01); 
+  REQUIRE(Approx(-0.83227f).epsilon(0.1) == b.e_10);
+  REQUIRE(Approx(0.55437f).epsilon(0.1) == b.e_11);
+  
+}
+
+TEST_CASE ("determinante","[determinante]") {
+  Mat2 a; 
+  Mat2 b {5.1f ,-9.3f ,3.2f ,1.2f};
+  float c = a.det();
+  float d = b.det();
+
+  REQUIRE(Approx(35.9).epsilon(0.1) == d);
+  REQUIRE(Approx(1.0f).epsilon(0.1) == c);  
+}
+
 // Aufgabe 2.7
+
+TEST_CASE ("color","[color]") {
+  Color a {}; 
+  Color b {0.1f ,0.3f ,0.7f};
+
+  REQUIRE(Approx(0.5f).epsilon(0.1) == a.r);
+  REQUIRE(Approx(0.5f).epsilon(0.1) == a.g);  
+  REQUIRE(Approx(0.5f).epsilon(0.1) == a.b); 
+
+  REQUIRE(Approx(0.1f).epsilon(0.1) == b.r);
+  REQUIRE(Approx(0.3f).epsilon(0.1) == b.g);  
+  REQUIRE(Approx(0.7f).epsilon(0.1) == b.b); 
+}
 
 
 int main(int argc, char *argv[])

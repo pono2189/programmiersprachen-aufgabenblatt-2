@@ -49,7 +49,7 @@ Mat2 make_rotation_mat2 (float phi){
 
 float Mat2:: det() const{
     float determinante; 
-    determinante = e_00*e_11 + e_01*e_10;
+    determinante = (e_00*e_11) - (e_01*e_10);
     return determinante;
 };
 
