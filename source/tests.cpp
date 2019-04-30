@@ -156,8 +156,8 @@ TEST_CASE ("/","[/]") {
 
 // Aufgabe 2.5
 
-
-TEST_CASE ("*=","[*=]") {
+//HELP!!!
+/*TEST_CASE ("*=","[*=]") {
 
   Mat2 a; 
   Mat2 b {5.1f ,-9.3f ,3.2f ,1.2f};
@@ -222,6 +222,28 @@ TEST_CASE ("inverse","[inverse]") {
   
 }
 
+
+TEST_CASE ("transpose","[transpose]") {
+
+  Mat2 a; 
+  Mat2 b {5.1f ,-9.3f ,3.2f ,1.2f};
+  Mat2 c {0.52f, 0.99f, 0.0f, 4.3f};
+  a = transpose(a);  
+  b = transpose(b);
+  c = transpose(c);
+
+  REQUIRE(Approx(1.0f) == a.e_00);  
+  REQUIRE(Approx(1.0f) == a.e_01); 
+  REQUIRE(Approx(0.0f) == a.e_10);
+  REQUIRE(Approx(0.0f) == a.e_11);
+
+  REQUIRE(Approx(5.1f) == b.e_00);  
+  REQUIRE(Approx(3.2f) == b.e_01); 
+  REQUIRE(Approx(-9.3f) == b.e_10);
+  REQUIRE(Approx(1.2f) == b.e_11);
+  
+}
+*/
 // Aufgabe 2.7
 
 
