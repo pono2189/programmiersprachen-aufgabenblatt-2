@@ -157,7 +157,8 @@ TEST_CASE ("/","[/]") {
 // Aufgabe 2.5
 
 //HELP!!!
-/*TEST_CASE ("*=","[*=]") {
+
+TEST_CASE ("describe_mat2*=operator","[mat2]") {
 
   Mat2 a; 
   Mat2 b {5.1f ,-9.3f ,3.2f ,1.2f};
@@ -170,15 +171,15 @@ TEST_CASE ("/","[/]") {
   REQUIRE(Approx(3.2f) == a.e_10);
   REQUIRE(Approx(1.2f) == a.e_11);
 
-  REQUIRE(Approx(2.65f) == b.e_00);  
-  REQUIRE(Approx(-34.94f) == b.e_01); 
-  REQUIRE(Approx(1.66f) == b.e_10);
-  REQUIRE(Approx(8.33f) == b.e_11);
+  REQUIRE(Approx(2.65f).epsilon(0.1) == b.e_00);  
+  REQUIRE(Approx(-34.94f).epsilon(0.1) == b.e_01); 
+  REQUIRE(Approx(1.66f).epsilon(0.1) == b.e_10);
+  REQUIRE(Approx(8.33f).epsilon(0.1) == b.e_11);
   
 }
 
 
-TEST_CASE ("*","[*]") {
+TEST_CASE ("describe_mat2*operator","[mat2]") {
 
   Mat2 a; 
   Mat2 b {5.1f ,-9.3f ,3.2f ,1.2f};
@@ -186,15 +187,15 @@ TEST_CASE ("*","[*]") {
   a = a * b;   
   b = b * c;
 
-  REQUIRE(Approx(5.1f) == a.e_00);  
-  REQUIRE(Approx(-9.3f) == a.e_01); 
-  REQUIRE(Approx(3.2f) == a.e_10);
-  REQUIRE(Approx(1.2f) == a.e_11);
+  REQUIRE(Approx(5.1f).epsilon(0.1) == a.e_00);  
+  REQUIRE(Approx(-9.3f).epsilon(0.1) == a.e_01); 
+  REQUIRE(Approx(3.2f).epsilon(0.1) == a.e_10);
+  REQUIRE(Approx(1.2f).epsilon(0.1) == a.e_11);
 
-  REQUIRE(Approx(2.65f) == b.e_00);  
-  REQUIRE(Approx(-34.94f) == b.e_01); 
-  REQUIRE(Approx(1.66f) == b.e_10);
-  REQUIRE(Approx(8.33f) == b.e_11);
+  REQUIRE(Approx(2.65f).epsilon(0.1) == b.e_00);  
+  REQUIRE(Approx(-34.94f).epsilon(0.1) == b.e_01); 
+  REQUIRE(Approx(1.66f).epsilon(0.1) == b.e_10);
+  REQUIRE(Approx(8.33f).epsilon(0.1) == b.e_11);
   
 }
 
@@ -206,19 +207,19 @@ TEST_CASE ("inverse","[inverse]") {
   Mat2 a; 
   Mat2 b {5.1f ,-9.3f ,3.2f ,1.2f};
   Mat2 c {0.52f, 0.99f, 0.0f, 4.3f};
-  a = inverse(a);  
-  b = inverse(b);
-  c = inverse(c);
+  Mat2 inv_a = inverse(a);  
+  Mat2 inv_b = inverse(b);
+  Mat2 inv_c = inverse(c);
 
-  REQUIRE(Approx(1.0f) == a.e_00);  
-  REQUIRE(Approx(0.0f) == a.e_01); 
-  REQUIRE(Approx(1.0f) == a.e_10);
-  REQUIRE(Approx(0.0f) == a.e_11);
+  REQUIRE(Approx(1.0f) == inv_a.e_00);  
+  REQUIRE(Approx(0.0f) == inv_a.e_01); 
+  REQUIRE(Approx(0.0f) == inv_a.e_10);
+  REQUIRE(Approx(1.0f) == inv_a.e_11);
 
-  REQUIRE(Approx(0.3343999982f) == b.e_00);  
-  REQUIRE(Approx(0.26f) == b.e_01); 
-  REQUIRE(Approx(-0.89f) == b.e_10);
-  REQUIRE(Approx(0.142f) == b.e_11);
+  REQUIRE(Approx(0.03f).epsilon(0.1) == inv_b.e_00);  
+  REQUIRE(Approx(0.3f).epsilon(0.1) == inv_b.e_01); 
+  REQUIRE(Approx(-0.089f).epsilon(0.1) == inv_b.e_10);
+  REQUIRE(Approx(0.1f).epsilon(0.1) == inv_b.e_11);
   
 }
 
@@ -233,9 +234,9 @@ TEST_CASE ("transpose","[transpose]") {
   c = transpose(c);
 
   REQUIRE(Approx(1.0f) == a.e_00);  
-  REQUIRE(Approx(1.0f) == a.e_01); 
+  REQUIRE(Approx(0.0f) == a.e_01); 
   REQUIRE(Approx(0.0f) == a.e_10);
-  REQUIRE(Approx(0.0f) == a.e_11);
+  REQUIRE(Approx(1.0f) == a.e_11);
 
   REQUIRE(Approx(5.1f) == b.e_00);  
   REQUIRE(Approx(3.2f) == b.e_01); 
@@ -243,7 +244,7 @@ TEST_CASE ("transpose","[transpose]") {
   REQUIRE(Approx(1.2f) == b.e_11);
   
 }
-*/
+
 // Aufgabe 2.7
 
 
