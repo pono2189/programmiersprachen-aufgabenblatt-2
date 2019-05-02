@@ -2,6 +2,11 @@
 #include <GLFW/glfw3.h>
 #include <utility>
 #include <cmath>
+#include "rectangle.hpp"
+#include "mat2.hpp"
+#include "circle.hpp"
+#include "vec2.hpp"
+#include "color.hpp"
 
 
 int main(int argc, char* argv[])
@@ -9,6 +14,7 @@ int main(int argc, char* argv[])
   Window win{std::make_pair(800,800)};
 
   while (!win.should_close()) {
+    
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       win.close();
     }
@@ -51,8 +57,20 @@ int main(int argc, char* argv[])
     unsigned int font_size = 35;
     
     win.draw_text(text_offset_x, text_offset_y, font_size, display_text);
+     
+    // Aufgabe 2.11
+    Vec2 cen = {400.0f, 400.0f};
+    Color col_c = {5.8f, 3.0f, 1.0f};
+    Circle cir = {3.5f, cen, col_c};
+    cir.draw(win);
 
-    win.update();
+    Vec2 min_r = {300.5f, 500.8};
+    Vec2 max_r = {200.0f, 400.6};
+    Color col_r; 
+    Rectangle r = {min_r, max_r, col_r};
+    r.draw(win);
+
+    win.update(); 
   }
 
   return 0;

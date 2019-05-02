@@ -1,6 +1,5 @@
 #include "circle.hpp"
-#include "color.hpp"
-#include <math.h>
+
 
 Circle::Circle(){
     radius_ = 1; 
@@ -19,7 +18,12 @@ float const Circle::circumference(){
     return circum; 
 };
 
-/*void const Circle::draw(Window w){
-
+void const Circle::draw(Window const& w){
+    int stepper = 100;
+    for (int i = 0; i<= stepper; i++){ 
+        Vec2 a = make_rotation_mat2(M_PI) * Vec2 {radius_, 0.0f} + center_;
+        Vec2 b = make_rotation_mat2(M_PI+ 0.5f) * Vec2 {radius_, 0.0f} + center_;
+        w.draw_line (a.x, a.y, b.x, b.y, 0.5f, 0.5f, 0.5f, 7.0f);
+    }
 }
-*/
+

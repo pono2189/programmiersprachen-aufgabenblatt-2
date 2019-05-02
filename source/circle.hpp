@@ -1,6 +1,9 @@
 #include "color.hpp"
 #include "vec2.hpp"
 #include "window.hpp"
+#include "mat2.hpp"
+#define _USE_MATH_DEFINES
+#include <math.h>
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
 
@@ -10,7 +13,7 @@ class Circle{
         Circle();
         Circle(float radius_, Vec2 const& center_, Color const& col_);
         float const circumference();
-        //void const draw();
+        void const draw(Window const& w);
     
     private:
         float radius_;
