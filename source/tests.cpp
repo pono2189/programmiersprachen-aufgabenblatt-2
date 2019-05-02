@@ -4,7 +4,6 @@
 #include "color.hpp"
 #include "circle.hpp"
 #include "vec2.hpp"
-
 #include "rectangle.hpp"
 
 
@@ -288,6 +287,36 @@ TEST_CASE ("color","[color]") {
   REQUIRE(Approx(0.3f).epsilon(0.1) == b.g);  
   REQUIRE(Approx(0.7f).epsilon(0.1) == b.b); 
 }
+
+// Aufgabe 2.9
+
+TEST_CASE ("circumference","[circumference]") {
+  Vec2 cen = {0.0f, 0.0f};
+  Color col_c; 
+  Circle c = {3.5f, cen, col_c};
+  Circle d = {1.0f, cen, col_c};
+
+  float a = c.circumference();
+  float b = d.circumference();
+
+  REQUIRE(Approx(21.89f).epsilon(0.1) == a);
+  REQUIRE(Approx(6.283f).epsilon(0.1) == b);
+}
+
+TEST_CASE ("circumference_rect","[circumference_rect]") {
+  Vec2 min_c = {3.5f, 5.8};
+  Vec2 max_c = {2.0f, 4.6};
+  Color col_c; 
+  Rectangle c = {min_c, max_c, col_c};
+  Rectangle d;
+
+  float a = c.circumference_rect();
+  float b = d.circumference_rect();
+
+  REQUIRE(Approx(-5.4f).epsilon(0.1) == a);
+  REQUIRE(Approx(4.0f).epsilon(0.1) == b);
+}
+
 
 /*
 TEST_CASE ("circle","[circle]") {

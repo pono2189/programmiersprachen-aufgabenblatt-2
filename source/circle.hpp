@@ -1,20 +1,24 @@
-#ifndef CIRCLE_HPP
-#define CIRCLE_HPP
 #include "color.hpp"
 #include "vec2.hpp"
+#include "window.hpp"
+#ifndef CIRCLE_HPP
+#define CIRCLE_HPP
 
 class Circle{  
     
     public:
         Circle();
-        Circle(float radius, Vec2 const& center, Color col);
-
+        Circle(float radius_, Vec2 const& center_, Color const& col_);
+        float const circumference();
+        //void const draw();
+    
     private:
-        float m_radius {0.0f}; 
-        Vec2 m_center {0.1f, 0.1f};
-        Color m_color {0.5, 0.5,0.5};
+        float radius_;
+        Vec2 center_;
+        Color col_; 
+       
+};
  
 
-};
-
 #endif
+
