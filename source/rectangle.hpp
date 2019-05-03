@@ -11,7 +11,8 @@ class Rectangle{
         float const circumference_rect ();
         void const draw( Window const& w);
         void const draw( Window const& w, float thickness);
-        
+        bool const is_inside_ (const Vec2& point);
+
     private:
         Vec2 min_; 
         Vec2 max_; 

@@ -318,16 +318,35 @@ TEST_CASE ("circumference_rect","[circumference_rect]") {
 }
 
 
-/*
-TEST_CASE ("circle","[circle]") {
-  Circle a; 
-  Vec2 v{0.7f, 0.1f};
-  Color c{0.2f, 0.4f, 0.7f};
-  Circle b {0.1f ,0.3f ,v, c};
+// Aufgabe 2.13
 
-  }
-*/
+TEST_CASE ("is_inside_circle","[is_inside_circle]") {
+  Vec2 cen_a = {0.0f, 0.0f};
+  Vec2 cen_b = {400.0f, 300.0f};
+  Vec2 cen_c = {3.0f, 4.0f};
+  Color col; 
+  Circle a = {3.5f, cen_a, col};
+  Circle b = {1.0f, cen_b, col};
 
+
+  REQUIRE(a.is_inside_(cen_a) == true);
+  REQUIRE(b.is_inside_(cen_c) == false);
+
+}
+
+TEST_CASE ("is_inside_rectangle","[is_inside_rectangle]") {
+  Vec2 min_a = {3.5f, 5.8};
+  Vec2 max_a = {2.0f, 4.6};
+  Vec2 min_b = {1.0f, 1.0f};
+  Vec2 max_b = {4.0f, 4.0f};
+  Color col; 
+  Rectangle a = {min_a, max_a, col};
+  Rectangle b = {min_b, max_b, col};
+
+  REQUIRE(a.is_inside_({3.5f, 5.8f}) == false);
+  REQUIRE(b.is_inside_({2.0f, 3.0f}) == false);
+
+} 
 
 int main(int argc, char *argv[])
 {

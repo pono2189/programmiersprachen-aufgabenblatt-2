@@ -43,3 +43,13 @@ void const Circle::draw(Window const& w, float thickness){
     }
 }
 
+bool const Circle::is_inside_(const Vec2& point){
+    Vec2 i = center_ - point;
+    float abstand_center_point = sqrt((i.x * i.x) + (i.y * i.y));
+    if (abstand_center_point > radius_) {
+        return false;
+    } 
+    else {
+        return true;
+    }
+}

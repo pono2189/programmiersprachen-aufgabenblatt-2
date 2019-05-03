@@ -7,13 +7,11 @@ Rectangle::Rectangle():
     col_ {0.6, 0.5, 0.5}
     {};
 
-
 Rectangle::Rectangle(Vec2 const& min, Vec2 const& max, Color col):
     min_ {min}, 
     max_ {max}, 
     col_ {col}
     {};
-
 
 float const Rectangle::circumference_rect (){
     float height = max_.y - min_.y;
@@ -28,7 +26,6 @@ void const Rectangle::draw (Window const& w){
     w.draw_line(min_.x, max_.y, max_.x, max_.y, 0.5f, 0.5f, 0.5f, 1.0f);
     w.draw_line(max_.x, max_.y, max_.x, min_.y, 0.5f, 0.5f, 0.5f, 1.0f);
     w.draw_line(max_.x, min_.y, min_.x, min_.y, 0.5f, 0.5f, 0.5f, 1.0f);
-
 }
 
 void const Rectangle::draw (Window const& w, float thickness){
@@ -36,5 +33,21 @@ void const Rectangle::draw (Window const& w, float thickness){
     w.draw_line(min_.x, max_.y, max_.x, max_.y, 0.5f, 0.5f, 0.5f, thickness);
     w.draw_line(max_.x, max_.y, max_.x, min_.y, 0.5f, 0.5f, 0.5f, thickness);
     w.draw_line(max_.x, min_.y, min_.x, min_.y, 0.5f, 0.5f, 0.5f, thickness);
-
 }
+
+bool const Rectangle::is_inside_ (const Vec2& point) {
+    bool rectangle_x;
+    bool rectangle_y;
+    if ((point.x >= min_.x) && (point.x <= max_.x)) {
+        rectangle_x = true;
+        }
+    if ((point.y >= max_.y) && (point.y <= min_.y)) { 
+        rectangle_y = true;
+        }
+    if ((rectangle_x == true) && (rectangle_y == true)){
+        return true;
+    }
+    else{
+        return false;
+    }
+} 
