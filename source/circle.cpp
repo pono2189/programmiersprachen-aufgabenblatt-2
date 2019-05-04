@@ -8,7 +8,6 @@ Circle::Circle():
     col_ {0.5, 0.5, 0.5}
     {};
 
-
 Circle::Circle(float radius, Vec2 const& center, Color const& col):
     radius_ {radius}, 
     center_ {center},

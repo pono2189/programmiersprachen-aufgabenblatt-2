@@ -7,6 +7,8 @@
 #include "circle.hpp"
 #include "vec2.hpp"
 #include "color.hpp"
+#include <vector>
+#include <array>
 
 
 int main(int argc, char* argv[])
@@ -18,6 +20,7 @@ int main(int argc, char* argv[])
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       win.close();
     }
+
 
     bool left_pressed = win.get_mouse_button(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 
@@ -59,16 +62,35 @@ int main(int argc, char* argv[])
     win.draw_text(text_offset_x, text_offset_y, font_size, display_text);
      
     // Aufgabe 2.11
-    Vec2 cen = {400.0f, 400.0f};
+    Vec2 cen_c = {400.0f, 400.0f};
+    Vec2 cen_d = {300.0f, 300.0f};
     Color col_c = {5.8f, 3.0f, 1.0f};
-    Circle cir = {50.0f, cen, col_c};
-    cir.draw(win);
+    Circle c = {50.0f, cen_c, col_c};
+    Circle d = {130.0f, cen_d, col_c};
+    c.draw(win);
 
     Vec2 min_r = {300.5f, 500.8};
     Vec2 max_r = {200.0f, 400.6};
+    Vec2 min_a = {100.0f, 700.0f};
+    Vec2 max_a = {250.0f, 500.0f};
     Color col_r; 
+    Color col_a = {0.0f, 0.0f, 1.0f};
     Rectangle r = {min_r, max_r, col_r};
+    Rectangle a = {min_a, max_a, col_a};
     r.draw(win);
+
+    //Aufgabe 2.13
+    
+    std::array <Rectangle,2> Rectangles = {r, a};
+
+    for (int w = 0; w < Rectangles.size(); ++w) {
+        if (Rectangles[w].is_inside_(Vec2{float(mouse_position.first), float(mouse_position.second)})) {
+            Rectangles[w].draw(win, 10.0f);
+        } 
+        else {
+            Rectangles[w].draw(win, 2.0f);
+        }
+}
 
     win.update(); 
   }

@@ -337,16 +337,16 @@ TEST_CASE ("is_inside_circle","[is_inside_circle]") {
 TEST_CASE ("is_inside_rectangle","[is_inside_rectangle]") {
   Vec2 min_a = {3.5f, 5.8};
   Vec2 max_a = {2.0f, 4.6};
-  Vec2 min_b = {1.0f, 1.0f};
-  Vec2 max_b = {4.0f, 4.0f};
+  Vec2 min_b = {1.5f, 20.6f};
+  Vec2 max_b = {10.4f, 2.6f};
   Color col; 
   Rectangle a = {min_a, max_a, col};
   Rectangle b = {min_b, max_b, col};
 
   REQUIRE(a.is_inside_({3.5f, 5.8f}) == false);
-  REQUIRE(b.is_inside_({2.0f, 3.0f}) == false);
+  REQUIRE(b.is_inside_({1.5f, 3.55f}) == true); 
 
-} 
+}
 
 int main(int argc, char *argv[])
 {

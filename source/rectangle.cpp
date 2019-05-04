@@ -35,7 +35,7 @@ void const Rectangle::draw (Window const& w, float thickness){
     w.draw_line(max_.x, min_.y, min_.x, min_.y, 0.5f, 0.5f, 0.5f, thickness);
 }
 
-bool const Rectangle::is_inside_ (const Vec2& point) {
+bool Rectangle::is_inside_ (const Vec2& point) const {
     bool rectangle_x;
     bool rectangle_y;
     if ((point.x >= min_.x) && (point.x <= max_.x)) {
@@ -50,4 +50,4 @@ bool const Rectangle::is_inside_ (const Vec2& point) {
     else{
         return false;
     }
-} 
+}
