@@ -1,11 +1,11 @@
 #include "circle.hpp"
 #include <math.h>
-
+#include "color.hpp"
 
 Circle::Circle():
     radius_ {10.0f},
     center_ {1.0f, 1.0f},
-    col_ {0.5, 0.5, 0.5}
+    col_ {0.5f, 0.5f, 0.5f}
     {};
 
 Circle::Circle(float radius, Vec2 const& center, Color const& col):
@@ -32,7 +32,7 @@ void const Circle::draw(Window const& w){
 void const Circle::draw(Window const& w, float thickness){
     int stepper = 100;
     for (int i = 0; i<= stepper; i++){ 
-         float a_x = (float) sin((2*M_PI*i)/360) * radius_ + center_.x;
+        float a_x = (float) sin((2*M_PI*i)/360) * radius_ + center_.x;
         float a_y = (float)cos((2*M_1_PI*i)/360) * radius_+ center_.y;
         float b_x = (float) sin(2*M_PI*(i+1)/360)*radius_ + center_.x;
         float b_y = (float)cos(2*M_1_PI*(i+1)/360)*radius_+ center_.y;

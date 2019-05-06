@@ -132,6 +132,7 @@ TEST_CASE ("*","[*]") {
   a = a * 4.0f;   
   b = b * 0.0f;
   c = c * -3.0f;
+  Vec2 d = 0.8f * c;
 
   REQUIRE(Approx(0.0f) == a.x);  ;
   REQUIRE(Approx(0.0f) == a.y); 
@@ -139,6 +140,7 @@ TEST_CASE ("*","[*]") {
   REQUIRE(Approx(0.0f) == b.y);
   REQUIRE(Approx(-1.569f) == c.x);
   REQUIRE(Approx(-2.9997f) == c.y);  
+  REQUIRE(Approx(d.x) == d.x);  
 }
 
 TEST_CASE ("/","[/]") {
@@ -159,7 +161,7 @@ TEST_CASE ("/","[/]") {
 
 // Aufgabe 2.5
 
-//HELP!!!
+
 
 TEST_CASE ("describe_mat2*=operator","[mat2]") {
 
@@ -204,6 +206,24 @@ TEST_CASE ("describe_mat2*operator","[mat2]") {
 
 
 // Aufgabe 2.6
+
+TEST_CASE ("mat*vec","[mat*vec]") {
+  Mat2 a; 
+  Mat2 b {5.1f ,-9.3f ,3.2f ,1.2f};
+  Vec2 c; 
+  Vec2 d {5.0f, 3.0f};
+  c = a*c;
+  d = b*d;
+
+  REQUIRE(Approx(0.0f) == c.x);  
+  REQUIRE(Approx(0.0f) == c.y); 
+  REQUIRE(Approx(-2.4f) == d.x);
+  REQUIRE(Approx(19.6f) == d.y);
+
+  d = d*b;
+  REQUIRE(Approx(-2.4f) == d.x);
+  REQUIRE(Approx(19.6f) == d.y);
+}
 
 TEST_CASE ("inverse","[inverse]") {
 

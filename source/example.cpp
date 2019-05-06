@@ -73,7 +73,7 @@ int main(int argc, char* argv[])
     Vec2 max_r = {200.0f, 400.6};
     Vec2 min_a = {100.0f, 700.0f};
     Vec2 max_a = {250.0f, 500.0f};
-    Color col_r; 
+    Color col_r = {0.0f, 0.0f, 1.0f};; 
     Color col_a = {0.0f, 0.0f, 1.0f};
     Rectangle r = {min_r, max_r, col_r};
     Rectangle a = {min_a, max_a, col_a};
