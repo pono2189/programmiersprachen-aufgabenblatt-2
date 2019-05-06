@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
     // Aufgabe 2.11
     Vec2 cen_c = {400.0f, 400.0f};
     Vec2 cen_d = {300.0f, 300.0f};
-    Color col_c = {5.8f, 3.0f, 1.0f};
+    Color col_c = {1.0f, 0.0f, 0.0f};
     Circle c = {50.0f, cen_c, col_c};
     Circle d = {130.0f, cen_d, col_c};
     c.draw(win);
@@ -73,7 +73,7 @@ int main(int argc, char* argv[])
     Vec2 max_r = {200.0f, 400.6};
     Vec2 min_a = {100.0f, 700.0f};
     Vec2 max_a = {250.0f, 500.0f};
-    Color col_r = {0.0f, 0.0f, 1.0f};; 
+    Color col_r = {0.0f, 1.0f, 0.0f};; 
     Color col_a = {0.0f, 0.0f, 1.0f};
     Rectangle r = {min_r, max_r, col_r};
     Rectangle a = {min_a, max_a, col_a};

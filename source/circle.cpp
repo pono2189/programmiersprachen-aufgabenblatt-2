@@ -26,7 +26,7 @@ void const Circle::draw(Window const& w){
     for (int i = 0; i<= stepper; i++){ 
         Vec2 a = make_rotation_mat2(2*M_PI/stepper*i) * Vec2{radius_, 0.0f} + center_;
         Vec2 b = make_rotation_mat2(2*M_PI/stepper*(i+1)) * Vec2{radius_, 0.0f} + center_;
-        w.draw_line (a.x, a.y, b.x, b.y, 0.5f, 0.5f, 0.5f, 1.0f);
+        w.draw_line (a.x, a.y, b.x, b.y, col_.r, col_.g, col_.b, 1.0f);
     }
 }
 void const Circle::draw(Window const& w, float thickness){
@@ -38,7 +38,7 @@ void const Circle::draw(Window const& w, float thickness){
         float b_y = (float)cos(2*M_1_PI*(i+1)/360)*radius_+ center_.y;
         Vec2 a = {a_x, a_y} ;
         Vec2 b = {b_x, b_y} ;
-        w.draw_line (a.x, a.y, b.x, b.y, 0.5f, 0.5f, 0.5f, thickness);
+        w.draw_line (a.x, a.y, b.x, b.y, col_.r, col_.g, col_.b, thickness);
     }
 }
 

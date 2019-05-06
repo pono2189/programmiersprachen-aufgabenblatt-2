@@ -22,17 +22,17 @@ float const Rectangle::circumference_rect (){
 }
 
 void const Rectangle::draw (Window const& w){
-    w.draw_line(min_.x, min_.y, min_.x, max_.y, 0.5f, 0.5f, 0.5f, 1.0f);
-    w.draw_line(min_.x, max_.y, max_.x, max_.y, 0.5f, 0.5f, 0.5f, 1.0f);
-    w.draw_line(max_.x, max_.y, max_.x, min_.y, 0.5f, 0.5f, 0.5f, 1.0f);
-    w.draw_line(max_.x, min_.y, min_.x, min_.y, 0.5f, 0.5f, 0.5f, 1.0f);
+    w.draw_line(min_.x, min_.y, min_.x, max_.y, col_.r, col_.g, col_.b, 1.0f);
+    w.draw_line(min_.x, max_.y, max_.x, max_.y, col_.r, col_.g, col_.b, 1.0f);
+    w.draw_line(max_.x, max_.y, max_.x, min_.y, col_.r, col_.g, col_.b, 1.0f);
+    w.draw_line(max_.x, min_.y, min_.x, min_.y, col_.r, col_.g, col_.b, 1.0f);
 }
 
 void const Rectangle::draw (Window const& w, float thickness){
-    w.draw_line(min_.x, min_.y, min_.x, max_.y, 0.5f, 0.5f, 0.5f, thickness);
-    w.draw_line(min_.x, max_.y, max_.x, max_.y, 0.5f, 0.5f, 0.5f, thickness);
-    w.draw_line(max_.x, max_.y, max_.x, min_.y, 0.5f, 0.5f, 0.5f, thickness);
-    w.draw_line(max_.x, min_.y, min_.x, min_.y, 0.5f, 0.5f, 0.5f, thickness);
+    w.draw_line(min_.x, min_.y, min_.x, max_.y, col_.r, col_.g, col_.b, thickness);
+    w.draw_line(min_.x, max_.y, max_.x, max_.y, col_.r, col_.g, col_.b, thickness);
+    w.draw_line(max_.x, max_.y, max_.x, min_.y, col_.r, col_.g, col_.b, thickness);
+    w.draw_line(max_.x, min_.y, min_.x, min_.y, col_.r, col_.g, col_.b, thickness);
 }
 
 bool Rectangle::is_inside_ (const Vec2& point) const {
